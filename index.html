@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ramprasad Subramanian | Data Science</title>
+  <meta name="description" content="Ramprasad Subramanian, M.Sc. Data Science student with an applied mathematics background. Projects in causal inference, machine learning, NLP, and forecasting.">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+    document.documentElement.classList.add("js");
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main">
+      <a class="nav-home" href="#top">Ramprasad Subramanian</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero wrap" id="top">
+      <h1 class="hero-name">Ramprasad<br>Subramanian</h1>
+      <p class="hero-tagline">M.Sc. Data Science student | Applied Mathematics background</p>
+      <p class="hero-intro">
+        My master's thesis is on an LLM-guided Socratic hint-generation system for intelligent
+        tutoring. I have taken models from notebooks to tested, deployed APIs across NLP, causal
+        inference, and time-series forecasting.
+      </p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="Ramprasad-Subramanian-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+        <a class="btn" href="https://github.com/Surebuckle71" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/ramprasadsubramanian" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section wrap reveal" id="projects" aria-labelledby="projects-title">
+      <h2 class="section-title" id="projects-title">Projects</h2>
+
+      <article class="featured">
+        <p class="featured-kicker">M.Sc. thesis, 2026</p>
+        <h3 class="project-title">
+          <a href="https://github.com/Surebuckle71/socratic-hint-thesis" target="_blank" rel="noopener">LLM-guided Socratic hint generation with student-state awareness</a>
+        </h3>
+        <p class="project-desc">
+          Research code for my thesis. A Qwen2.5-3B-Instruct model, fine-tuned with QLoRA on
+          MathDial tutoring dialogues on a 6 GB laptop GPU, estimates the student's mastery from
+          the dialogue and then writes the next Socratic hint conditioned on that estimate. Across
+          241 held-out dialogues and five conditions, fine-tuning improved LLM-judged hint quality
+          over the same base model without fine-tuning (all p &lt; 0.01). State-conditioning
+          produced no significant gain, and a small first-run deficit did not replicate over three
+          seeds. A same-history counterfactual with a placebo check showed that most of the
+          model's response to an injected state came from the wording of the state line. The
+          prompted Claude Sonnet 5 baseline still leads on every measure.
+        </p>
+        <ul class="tags" aria-label="Tech stack">
+          <li>Python</li><li>LLMs</li><li>PyTorch</li><li>QLoRA</li><li>Unsloth</li><li>Qwen2.5-3B</li><li>Anthropic API</li><li>pytest</li>
+        </ul>
+        <a class="repo-link" href="https://github.com/Surebuckle71/socratic-hint-thesis" target="_blank" rel="noopener">View repository</a>
+      </article>
+
+      <div class="filters" role="group" aria-label="Filter projects by theme">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-filter="causal" aria-pressed="false">Causal inference</button>
+        <button type="button" class="chip" data-filter="ml" aria-pressed="false">Machine learning &amp; NLP</button>
+        <button type="button" class="chip" data-filter="forecast" aria-pressed="false">Forecasting &amp; experimentation</button>
+      </div>
+
+      <!-- Causal inference -->
+      <div class="project-group" data-group="causal">
+        <h3 class="group-title">Causal inference</h3>
+        <div class="project-grid">
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/lalonde-causal-benchmark" target="_blank" rel="noopener">LaLonde causal benchmark</a>
+            </h4>
+            <p class="project-desc">
+              Rebuilds LaLonde's 1986 exercise: keeps the 185 treated participants of the NSW
+              job-training experiment, swaps the randomized controls for 15,992 people from the
+              CPS, and scores five observational estimators against the experimental benchmark of
+              +$1,794. The naive difference in means flips sign <span class="nowrap">(&minus;$8,498)</span>, and only OLS
+              regression adjustment lands inside the benchmark's confidence interval. Overlap and
+              balance diagnostics show why the weighting estimators (IPW, AIPW) break down.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>Jupyter</li><li>Propensity scores</li><li>IPW / AIPW</li><li>Matching</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/lalonde-causal-benchmark" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/causal-ml-heterogeneous-effects" target="_blank" rel="noopener">Heterogeneous treatment effects (CATE)</a>
+            </h4>
+            <p class="project-desc">
+              Compares S-, T-, X-, and DR-learners on how well they recover the conditional average
+              treatment effect on synthetic data where the true effect is known, under a
+              confounded and a randomized scenario, with 5-fold cross-fitting for all nuisance
+              models. The X-learner has the lowest PEHE under confounding (0.193), the S-learner
+              under randomization (0.158). When targeting the top 5% of units, the X- and
+              DR-learners come within about 3% of an oracle ranking.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>Jupyter</li><li>Meta-learners</li><li>Cross-fitting</li><li>Gradient boosting</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/causal-ml-heterogeneous-effects" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/minimum-wage-staggered-did" target="_blank" rel="noopener">Minimum wage: staggered difference-in-differences</a>
+            </h4>
+            <p class="project-desc">
+              Do state minimum wage increases raise unemployment? Joins U.S. Department of Labor
+              minimum wage records with FRED state unemployment rates (1976&ndash;2019) and runs
+              both naive two-way fixed effects and the Callaway&ndash;Sant'Anna estimator for
+              staggered adoption. The two estimates land within about 15% of each other and
+              neither is significant at the 5% level. The event study shows no pre-trend and an association
+              that builds slowly over several years after treatment.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>Jupyter</li><li>Difference-in-differences</li><li>Event study</li><li>Panel data</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/minimum-wage-staggered-did" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Machine learning & NLP -->
+      <div class="project-group" data-group="ml">
+        <h3 class="group-title">Machine learning &amp; NLP</h3>
+        <div class="project-grid">
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/aspect-sentiment-analysis-food-reviews" target="_blank" rel="noopener">Aspect sentiment analysis for food reviews</a>
+            </h4>
+            <p class="project-desc">
+              Compares fine-tuned BERT, RoBERTa, and XLM-RoBERTa with LSTM and TF-IDF + SVM
+              baselines on 1.31M Zomato review instances. Of the test reviews, 97.5% were exact duplicates of training text, which inflated the baselines' accuracy. On the
+              4,947 reviews never seen in training, RoBERTa did best (83.0%). Per-aspect sentiment
+              is evaluated with distant supervision on single-aspect reviews, and the model is
+              served through a tested FastAPI service.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>Transformers</li><li>LSTM / SVM</li><li>FastAPI</li><li>pytest</li><li>GitHub Actions</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/aspect-sentiment-analysis-food-reviews" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/telco-churn-risk-api" target="_blank" rel="noopener">Telco churn risk API</a>
+            </h4>
+            <p class="project-desc">
+              A tuned, calibrated churn classifier served through FastAPI, with a
+              <code>/predict</code> endpoint and an <code>/explain</code> endpoint that uses SHAP to
+              show why a customer was flagged. Logistic regression beat random forest and gradient
+              boosting in 5-fold cross-validation (ROC-AUC 0.845). The decision threshold (0.10) is
+              chosen from assumed costs of $50 per unnecessary retention offer and $500 per missed
+              churner, rather than the default of 0.5. Packaged with Docker and tested in CI.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>scikit-learn</li><li>FastAPI</li><li>SHAP</li><li>Docker</li><li>GitHub Actions</li>
+            </ul>
+            <div class="project-links">
+              <a class="repo-link" href="https://github.com/Surebuckle71/telco-churn-risk-api" target="_blank" rel="noopener">View repository</a>
+              <a class="repo-link" href="https://telco-churn-risk-api.onrender.com" target="_blank" rel="noopener">Live demo</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/student-dropout-prediction" target="_blank" rel="noopener">Student dropout prediction</a>
+            </h4>
+            <p class="project-desc">
+              Predicts early student dropout on the UCI dataset (4,424 students, 35 features).
+              Compares 10 classifiers under two class-imbalance strategies, class-weighting and
+              SMOTE, and ships as an installable Python package with a test suite, CI, and a
+              FastAPI <code>/predict</code> endpoint. The best model in the full sweep, Extra Trees
+              on SMOTE-balanced data, reached F1 89.2% and ROC-AUC 96.3% on the test set.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>Classification</li><li>SMOTE</li><li>FastAPI</li><li>pytest</li><li>GitHub Actions</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/student-dropout-prediction" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Forecasting & experimentation -->
+      <div class="project-group" data-group="forecast">
+        <h3 class="group-title">Forecasting &amp; experimentation</h3>
+        <div class="project-grid">
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/caiso-demand-forecast" target="_blank" rel="noopener">CAISO electricity demand forecast</a>
+            </h4>
+            <p class="project-desc">
+              Day-ahead forecast of CAISO hourly electricity demand on data pulled live from the
+              EIA and Open-Meteo APIs. A walk-forward backtest over 61 windows compares a
+              seasonal-naive baseline, Prophet, and gradient boosting. Gradient boosting cuts mean
+              MAPE to 2.89% against the baseline's 8.04%, while Prophet does not beat the naive
+              baseline on this data.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>Jupyter</li><li>Time series</li><li>Prophet</li><li>Gradient boosting</li><li>REST APIs</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/caiso-demand-forecast" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/cookie-cats-ab-test" target="_blank" rel="noopener">Cookie Cats A/B test</a>
+            </h4>
+            <p class="project-desc">
+              Analysis of a public A/B test, run on about 90,000 players, that moved a mobile game's first gate from level 30 to level 40. Covers a sample-ratio check, power analysis,
+              two-proportion z-tests with bootstrap confidence intervals, and Benjamini&ndash;Hochberg
+              correction across metrics. Day-7 retention is significantly higher with the gate at
+              level 30. A peeking simulation shows that stopping early pushes the false-positive rate
+              to 20%.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>Python</li><li>Jupyter</li><li>A/B testing</li><li>Power analysis</li><li>Bootstrap</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/cookie-cats-ab-test" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS (pre-filled from resume; edit freely) -->
+    <section class="section wrap reveal" id="skills" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul>
+            <li>Python</li><li>R</li><li>SQL</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>ML &amp; statistics</h3>
+          <ul>
+            <li>Classification &amp; regression</li>
+            <li>Class-imbalance handling</li>
+            <li>Model calibration &amp; cost-sensitive thresholds</li>
+            <li>Time-series forecasting, walk-forward validation</li>
+            <li>Causal inference (CATE, difference-in-differences)</li>
+            <li>A/B testing &amp; experimental design</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>NLP &amp; LLMs</h3>
+          <ul>
+            <li>Transformer fine-tuning (BERT, RoBERTa, XLM-RoBERTa)</li>
+            <li>Prompt engineering</li>
+            <li>LLM evaluation</li>
+            <li>Aspect-based sentiment analysis</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; deployment</h3>
+          <ul>
+            <li>FastAPI</li><li>Docker</li><li>GitHub Actions (CI/CD)</li><li>Hugging Face Transformers</li>
+            <li>scikit-learn</li><li>SHAP</li><li>pandas, NumPy</li><li>tidyverse / ggplot2</li><li>Tableau</li><li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section wrap reveal" id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact</h2>
+      <p class="contact-text">
+        I'm looking for data science roles. The quickest way to reach me is email.
+      </p>
+      <a class="contact-email" href="mailto:Surebuckle71@proton.me">Surebuckle71@proton.me</a>
+      <ul class="contact-links">
+        <li><a href="https://www.linkedin.com/in/ramprasadsubramanian" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/Surebuckle71" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="Ramprasad-Subramanian-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>&copy; <span id="year">2026</span> Ramprasad Subramanian</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
