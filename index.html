@@ -81,9 +81,36 @@
 
       <div class="filters" role="group" aria-label="Filter projects by theme">
         <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="chip" data-filter="analytics" aria-pressed="false">Analytics &amp; SQL</button>
         <button type="button" class="chip" data-filter="causal" aria-pressed="false">Causal inference</button>
         <button type="button" class="chip" data-filter="ml" aria-pressed="false">Machine learning &amp; NLP</button>
         <button type="button" class="chip" data-filter="forecast" aria-pressed="false">Forecasting &amp; experimentation</button>
+      </div>
+
+      <!-- Analytics & SQL -->
+      <div class="project-group" data-group="analytics">
+        <h3 class="group-title">Analytics &amp; SQL</h3>
+        <div class="project-grid">
+
+          <article class="project">
+            <h4 class="project-title">
+              <a href="https://github.com/Surebuckle71/db-punctuality" target="_blank" rel="noopener">Deutsche Bahn punctuality: where trains lose time</a>
+            </h4>
+            <p class="project-desc">
+              Follows ICE, IC and EC journeys stop by stop (491,562 stop events, June and
+              August 2026) and splits each train's delay into time lost while running and time
+              lost while standing at stations. Trains spend 8% of their scheduled time at stations
+              but add 52% of their net delay there (51% in June). Built as a tested pipeline:
+              Python ingestion, DuckDB, dbt models with 45 data tests, a Streamlit dashboard and a
+              monthly refresh in GitHub Actions.
+            </p>
+            <ul class="tags" aria-label="Tech stack">
+              <li>SQL</li><li>dbt</li><li>DuckDB</li><li>Streamlit</li><li>Python</li><li>GitHub Actions</li>
+            </ul>
+            <a class="repo-link" href="https://github.com/Surebuckle71/db-punctuality" target="_blank" rel="noopener">View repository</a>
+          </article>
+
+        </div>
       </div>
 
       <!-- Causal inference -->
@@ -288,7 +315,7 @@
           <h3>Tools &amp; deployment</h3>
           <ul>
             <li>FastAPI</li><li>Docker</li><li>GitHub Actions (CI/CD)</li><li>Hugging Face Transformers</li>
-            <li>scikit-learn</li><li>SHAP</li><li>pandas, NumPy</li><li>tidyverse / ggplot2</li><li>Tableau</li><li>Git</li>
+            <li>scikit-learn</li><li>SHAP</li><li>pandas, NumPy</li><li>tidyverse / ggplot2</li><li>dbt</li><li>DuckDB</li><li>Streamlit</li><li>Tableau</li><li>Git</li>
           </ul>
         </div>
       </div>
